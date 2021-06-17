@@ -14,6 +14,9 @@ namespace v0617
     {
         int vx = rand.Next(-10, 11);
         int vy = rand.Next(-10, 11);
+        int vxx = rand.Next(-10, 11);
+        int vyx= rand.Next(-10, 11);
+
         int score = 100;
         static Random rand = new Random();
 
@@ -21,8 +24,10 @@ namespace v0617
         {
             InitializeComponent();
 
-            label1.Left = rand.Next(ClientSize.Width);
-            label1.Top = rand.Next(ClientSize.Height);
+            label1.Left = rand.Next(ClientSize.Width - label1.Width);
+            label1.Top = rand.Next(ClientSize.Height - label1.Height);
+            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,7 +62,26 @@ namespace v0617
             {
                 vy = -Math.Abs(vy);
             }
-            
+
+            label4.Top += vyx;
+            label4.Left += vxx;
+            if (label4.Left < 0)
+            {
+                vxx = Math.Abs(vx);//Math.Abs()で()内の値を絶対値にしている(正の数に変える)
+            }
+            if (label4.Right > ClientSize.Width)
+            {
+                vxx = -Math.Abs(vx);
+            }
+            if (label4.Top < 0)
+            {
+                vyx = Math.Abs(vy);
+            }
+            if (label4.Bottom > ClientSize.Height)
+            {
+                vyx = -Math.Abs(vy);
+            }
+
             score--;
             label2.Text = $"Score {score}";
 
