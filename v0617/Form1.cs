@@ -30,7 +30,7 @@ namespace v0617
         {
             Point spos = MousePosition;
             Point fpos = PointToClient(spos);
-            label3.Text = $"{fpos.X},{fpos.Y}";
+            label3.Text = $"{fpos.X},{fpos.Y}";//TextBoxに座標を入れる
             label3.Left = fpos.X - label3.Width/2;
             label3.Top = fpos.Y - label3.Height/2;
 
@@ -39,7 +39,7 @@ namespace v0617
             //ラベルがフォームの端で跳ね返るようにする
             if (label1.Left < 0)
             {
-                vx = Math.Abs(vx);//Math.Abs()で()内の値を絶対値(正の数に変える)
+                vx = Math.Abs(vx);//Math.Abs()で()内の値を絶対値にしている(正の数に変える)
             }
             if (label1.Right > ClientSize.Width)
             {
@@ -56,6 +56,15 @@ namespace v0617
             
             score--;
             label2.Text = $"Score {score}";
+
+            if (    (fpos.X >= label1.Left)
+                &&  (fpos.X < label1.Right)
+                &&  (fpos.Y <= label1.Top)
+                &&  (fpos.Y < label1.Bottom)
+                )
+            {
+                timer1.Enabled = false;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
