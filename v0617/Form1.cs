@@ -28,6 +28,12 @@ namespace v0617
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Point spos = MousePosition;
+            Point fpos = PointToClient(spos);
+            label3.Text = $"{fpos.X},{fpos.Y}";
+            label3.Left = spos.X;
+            label3.Top = spos.Y;
+
             label1.Top += vy;//左(-)の方向に進み続ける
             label1.Left += vx;//上(-)の方向に進み続ける
             //ラベルがフォームの端で跳ね返るようにする
