@@ -31,8 +31,8 @@ namespace v0617
             Point spos = MousePosition;
             Point fpos = PointToClient(spos);
             label3.Text = $"{fpos.X},{fpos.Y}";
-            label3.Left = spos.X;
-            label3.Top = spos.Y;
+            label3.Left = fpos.X - label3.Width/2;
+            label3.Top = fpos.Y - label3.Height/2;
 
             label1.Top += vy;//左(-)の方向に進み続ける
             label1.Left += vx;//上(-)の方向に進み続ける
