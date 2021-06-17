@@ -14,6 +14,7 @@ namespace v0617
     {
         int vx = -10;
         int vy = -10;
+        int score = 100;
 
         public Form1()
         {
@@ -32,7 +33,7 @@ namespace v0617
             //ラベルがフォームの端で跳ね返るようにする
             if (label1.Left < 0)
             {
-                vx = Math.Abs(vx);
+                vx = Math.Abs(vx);//Math.Abs()で()内の値を絶対値(正の数に変える)
             }
             if (label1.Right > ClientSize.Width)
             {
@@ -46,6 +47,14 @@ namespace v0617
             {
                 vy = -Math.Abs(vy);
             }
+            
+            score--;
+            label2.Text = $"Score {score}";
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
