@@ -14,6 +14,7 @@ namespace v0617
     {
         int vx = -10;
         int vy = -10;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace v0617
         {
             label1.Top += vx;
             label1.Left += vy;
+
             if (label1.Left < 0)
             {
                 vx = Math.Abs(vx);
